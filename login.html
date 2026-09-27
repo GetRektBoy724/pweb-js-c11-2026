@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>OrangeMart — Masuk</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="login.js" defer></script>
+  </head>
+  <body class="login-page">
+
+    <main class="login-layout">
+      <div class="login-card">
+
+        <div class="login-brand">
+          <span class="brand-icon">O</span>
+          <span class="login-brand-name">
+            <strong>Orange</strong>
+            <small>mart</small>
+          </span>
+        </div>
+
+        <h1>Masuk</h1>
+        <p class="login-sub">Belanja lebih mudah setelah masuk ke akunmu</p>
+
+        <form id="loginForm" novalidate>
+
+          <div class="field">
+            <label for="username">Username</label>
+            <div class="field-box">
+              <input
+                type="text"
+                id="username"
+                name="username"
+                placeholder="Masukkan username"
+                autocomplete="username"
+                required
+              />
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="password">Password</label>
+            <div class="field-box">
+              <input
+                type="password"
+                id="password"
+                name="password"
+                placeholder="Masukkan password"
+                autocomplete="current-password"
+                required
+              />
+              <button
+                type="button"
+                id="togglePassword"
+                class="toggle-password"
+                aria-label="Tampilkan password"
+              >👁</button>
+            </div>
+          </div>
+
+          <p id="loginError" class="login-error" role="alert" hidden></p>
+
+          <button type="submit" id="loginButton" class="login-submit">
+            MASUK
+          </button>
+
+          <a class="login-forgot" href="#">Lupa Password?</a>
+        </form>
+
+        <p class="login-hint">
+          Demo: gunakan username &amp; password dari
+          <a href="https://dummyjson.com/users" target="_blank" rel="noopener">dummyjson users</a>
+          (contoh: <b>emilys</b> / <b>emilyspass</b>)
+        </p>
+
+      </div>
+    </main>
+
+  </body>
+</html>
