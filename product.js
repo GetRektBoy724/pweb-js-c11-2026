@@ -3,7 +3,7 @@
 // ========================================
 
 // API
-const PRODUCT_API = "https://dummyjson.com/products";
+const PRODUCT_API = "https://dummyjson.com/products?limit=0";
 
 // Data produk dari API
 let products = [];
@@ -145,15 +145,15 @@ function renderProducts(productList) {
 
                 <div class="rating">
                     ★ ${product.rating}
-                    <span>(${product.stock})</span>
+                    <span>(${product.reviews ? product.reviews.length : 0} ulasan)</span>
                 </div>
 
                 <strong>
-                    Rp${formatPrice(product.price)}
+                    $${formatPrice(product.price)}
                 </strong>
 
                 <del>
-                    Rp${formatPrice(originalPrice)}
+                    $${formatPrice(originalPrice)}
                 </del>
 
                 <div class="product-meta">
@@ -191,7 +191,7 @@ function renderProducts(productList) {
 // ========================================
 
 function formatPrice(price) {
-    return Math.round(price).toLocaleString("id-ID");
+    return Math.round(price).toLocaleString("en-US");
 }
 
 
@@ -481,7 +481,7 @@ function renderCart() {
             </div>
         `;
 
-        cartTotal.textContent = "Rp0";
+        cartTotal.textContent = "$0";
         return;
     }
 
@@ -502,7 +502,7 @@ function renderCart() {
                 <h3>${item.title}</h3>
 
                 <strong>
-                    Rp${formatPrice(item.price)}
+                    $${formatPrice(item.price)}
                 </strong>
 
                 <div class="quantity-control">
@@ -567,7 +567,7 @@ function updateCartTotal() {
     }, 0);
 
     cartTotal.textContent =
-        "Rp" + formatPrice(total);
+        "$" + formatPrice(total);
 }
 
 cartItems.addEventListener("click", function (event) {
@@ -702,7 +702,7 @@ function openProductModal(productId) {
         product.rating;
 
     modalPrice.textContent =
-        "Rp" + formatPrice(product.price);
+        "$" + formatPrice(product.price);
 
     modalStock.textContent =
         product.stock;

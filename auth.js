@@ -38,6 +38,7 @@ const LOGIN_PAGE = "login.html";
 
   logoutButton.addEventListener("click", function () {
     localStorage.removeItem(STORAGE_KEY);
+    localStorage.removeItem("cart");
     window.location.href = LOGIN_PAGE;
   });
 
